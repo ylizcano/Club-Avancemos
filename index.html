@@ -6,18 +6,18 @@
     <title>Club Avancemos - Partido Conservador</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* COLORES OFICIALES: AZUL, BLANCO, AMARILLO */
+        /* COLORES OFICIALES */
         :root {
-            --azul-principal: #1a365d;      /* Azul conservador oscuro */
-            --azul-medio: #2c5282;          /* Azul medio */
-            --azul-claro: #4299e1;          /* Azul claro para acentos */
-            --blanco: #ffffff;              /* Blanco puro */
-            --amarillo: #ffd93d;            /* Amarillo vibrante */
-            --amarillo-oscuro: #f6c90e;     /* Amarillo más oscuro */
-            --gris-claro: #f7fafc;          /* Fondo claro */
-            --gris-texto: #4a5568;          /* Texto gris */
+            --azul-principal: #1a365d;
+            --azul-medio: #2c5282;
+            --azul-claro: #4299e1;
+            --blanco: #ffffff;
+            --amarillo: #ffd93d;
+            --amarillo-oscuro: #f6c90e;
+            --gris-claro: #f7fafc;
+            --gris-texto: #4a5568;
         }
-        
+
         /* ESTILOS GENERALES */
         * {
             margin: 0;
@@ -25,59 +25,54 @@
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         body {
             background-color: var(--blanco);
             color: var(--gris-texto);
             line-height: 1.6;
             overflow-x: hidden;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
+
         section {
             padding: 100px 0;
         }
-        
+
         h1, h2, h3, h4 {
             color: var(--azul-principal);
             margin-bottom: 25px;
         }
-        
-        h1 {
-            font-size: 3.5rem;
-            line-height: 1.1;
-            font-weight: 800;
-        }
-        
+
         h2 {
             font-size: 2.8rem;
             text-align: center;
             margin-bottom: 60px;
             position: relative;
         }
-        
+
         h2:after {
             content: '';
             position: absolute;
-            width: 120px;
+            width: 80px;
             height: 5px;
             background: var(--amarillo);
-            bottom: -20px;
+            bottom: -15px;
             left: 50%;
             transform: translateX(-50%);
             border-radius: 3px;
+            transition: width 0.3s ease;
         }
-        
-        h3 {
-            font-size: 2rem;
-            color: var(--azul-medio);
+
+        section:hover h2:after {
+            width: 150px;
         }
-        
+
+        /* BOTONES DINÁMICOS */
         .btn {
             display: inline-block;
             padding: 18px 40px;
@@ -88,1032 +83,431 @@
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             border: none;
             cursor: pointer;
-            font-size: 1.1rem;
             box-shadow: 0 5px 15px rgba(255, 217, 61, 0.3);
             position: relative;
             overflow: hidden;
         }
-        
+
         .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 217, 61, 0.5);
             background: var(--amarillo-oscuro);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255, 217, 61, 0.4);
-            color: var(--azul-principal);
         }
-        
-        .btn-azul {
-            background: var(--azul-principal);
-            color: var(--blanco);
-            box-shadow: 0 5px 15px rgba(26, 54, 93, 0.3);
-        }
-        
-        .btn-azul:hover {
-            background: var(--azul-medio);
-            box-shadow: 0 8px 25px rgba(26, 54, 93, 0.4);
-            color: var(--blanco);
-        }
-        
-        .btn-blanco {
-            background: var(--blanco);
-            color: var(--azul-principal);
-            border: 2px solid var(--azul-principal);
-            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
-        }
-        
-        .btn-blanco:hover {
-            background: var(--azul-principal);
-            color: var(--blanco);
-            transform: translateY(-3px);
-        }
-        
-        /* HEADER CON COLORES OFICIALES */
+
+        .btn-azul { background: var(--azul-principal); color: var(--blanco); }
+        .btn-azul:hover { background: var(--azul-medio); box-shadow: 0 10px 25px rgba(26, 54, 93, 0.4); }
+
+        /* HEADER ANIMADO */
         header {
-            background: linear-gradient(135deg, var(--azul-principal) 0%, var(--azul-medio) 100%);
-            padding: 60px 0 120px;
+            background: linear-gradient(-45deg, #1a365d, #2c5282, #1a365d, #4299e1);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            padding: 80px 0 140px;
             text-align: center;
             position: relative;
-            overflow: hidden;
+            color: white;
         }
-        
-        header:before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 100px;
-            background: linear-gradient(transparent, var(--blanco));
-            z-index: 1;
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
-        
-        .logo-container {
-            margin-bottom: 60px;
-        }
-        
+
         .partido-badge {
-            display: inline-block;
             background: var(--amarillo);
             color: var(--azul-principal);
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-weight: 700;
-            font-size: 0.9rem;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .logo {
-            font-size: 3.2rem;
-            font-weight: 900;
-            color: var(--blanco);
-            margin-bottom: 15px;
-            letter-spacing: 2px;
-        }
-        
-        .logo span {
-            color: var(--amarillo);
-        }
-        
-        .tagline {
-            font-size: 1.6rem;
-            color: rgba(255, 255, 255, 0.9);
-            font-weight: 300;
-            letter-spacing: 1px;
-        }
-        
-        /* REPRODUCTOR ESTILO CAMPAÑA */
-        .player-section {
-            background: var(--blanco);
-            border-radius: 20px;
-            padding: 50px;
-            max-width: 700px;
-            margin: 0 auto 80px;
-            box-shadow: 0 20px 40px rgba(26, 54, 93, 0.1);
-            border: 1px solid rgba(26, 54, 93, 0.1);
-            position: relative;
-            z-index: 2;
-        }
-        
-        .player-title {
-            font-size: 2.2rem;
-            color: var(--azul-principal);
-            margin-bottom: 40px;
-            text-align: center;
+            padding: 8px 25px;
+            border-radius: 50px;
             font-weight: 800;
+            display: inline-block;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
-        
-        .player {
-            text-align: center;
+
+        .logo {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
         }
-        
+
+        .logo span { color: var(--amarillo); }
+
+        /* REPRODUCTOR CON EFECTO CRISTAL */
+        .player-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 40px;
+            max-width: 600px;
+            margin: 40px auto;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: var(--azul-principal);
+        }
+
         .play-btn {
-            width: 90px;
-            height: 90px;
+            width: 80px;
+            height: 80px;
             background: var(--amarillo);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 30px;
+            margin: 0 auto 20px;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 25px rgba(255, 217, 61, 0.4);
-            border: 5px solid var(--blanco);
+            box-shadow: 0 10px 20px rgba(255, 217, 61, 0.4);
         }
-        
-        .play-btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 15px 35px rgba(255, 217, 61, 0.6);
-        }
-        
-        .play-btn i {
-            font-size: 2.2rem;
-            color: var(--azul-principal);
-            margin-left: 5px;
-        }
-        
+
+        .play-btn:hover { transform: scale(1.1) rotate(5deg); }
+
         .progress-container {
-            background: rgba(26, 54, 93, 0.1);
+            background: #e2e8f0;
             height: 8px;
-            border-radius: 4px;
-            margin: 30px 0 20px;
-            cursor: pointer;
-            position: relative;
+            border-radius: 10px;
+            margin: 20px 0;
+            overflow: hidden;
         }
-        
+
         .progress-bar {
-            background: linear-gradient(90deg, var(--amarillo), var(--azul-claro));
+            background: var(--azul-claro);
             height: 100%;
             width: 0%;
-            border-radius: 4px;
-            position: relative;
-            transition: width 0.3s ease;
+            transition: width 0.1s linear;
         }
-        
-        .progress-bar:after {
-            content: '';
-            position: absolute;
-            right: -8px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 18px;
-            height: 18px;
-            background: var(--azul-principal);
-            border-radius: 50%;
-            border: 3px solid var(--blanco);
-            box-shadow: 0 0 10px rgba(26, 54, 93, 0.5);
-        }
-        
-        .time-info {
-            display: flex;
-            justify-content: space-between;
-            color: var(--azul-medio);
-            font-size: 1.1rem;
-            margin-bottom: 25px;
-            font-weight: 600;
-        }
-        
-        .play-instruction {
-            color: var(--azul-principal);
-            font-size: 1.1rem;
-            margin-top: 20px;
-            font-weight: 600;
-        }
-        
-        /* CANDIDATOS - ESTILO ELEGANTE */
-        .candidatos-section {
-            position: relative;
-            z-index: 2;
-            margin-top: 30px;
-        }
-        
+
+        /* TARJETAS DE CANDIDATOS */
         .candidatos-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 50px;
-            margin-top: 60px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-top: -80px;
         }
-        
+
         .candidato-card {
-            background: var(--blanco);
+            background: white;
             border-radius: 20px;
-            overflow: hidden;
+            padding: 40px;
             text-align: center;
-            padding: 50px 40px;
-            border: 2px solid rgba(26, 54, 93, 0.1);
-            transition: all 0.3s ease;
-            position: relative;
-            box-shadow: 0 15px 30px rgba(26, 54, 93, 0.08);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.4s ease;
+            border-bottom: 5px solid transparent;
         }
-        
+
         .candidato-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--amarillo);
-            box-shadow: 0 20px 40px rgba(26, 54, 93, 0.15);
+            transform: translateY(-15px);
+            border-bottom: 5px solid var(--amarillo);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
-        
-        .candidato-card:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, var(--azul-principal), var(--amarillo));
-        }
-        
+
         .candidato-img {
-            width: 200px;
-            height: 200px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
-            margin: 0 auto 30px;
-            border: 5px solid var(--azul-principal);
+            margin: 0 auto 25px;
             overflow: hidden;
-            box-shadow: 0 10px 25px rgba(26, 54, 93, 0.2);
-            position: relative;
-            background: var(--blanco);
+            border: 6px solid var(--gris-claro);
+            transition: border-color 0.4s ease;
         }
-        
+
+        .candidato-card:hover .candidato-img { border-color: var(--amarillo); }
+
         .candidato-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.6s ease;
         }
-        
-        .cargo {
-            font-size: 1.3rem;
-            color: var(--azul-medio);
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            font-weight: 600;
-        }
-        
-        .nombre {
-            font-size: 2.2rem;
-            font-weight: 800;
-            color: var(--azul-principal);
-            margin-bottom: 10px;
-        }
-        
-        .numero-container {
-            margin: 25px 0;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .numero {
-            font-size: 4.5rem;
+
+        .candidato-card:hover .candidato-img img { transform: scale(1.15); }
+
+        .numero-badge {
+            font-size: 3rem;
             font-weight: 900;
             color: var(--azul-principal);
-            line-height: 1;
-            text-shadow: 0 5px 15px rgba(26, 54, 93, 0.2);
-            position: relative;
+            background: var(--gris-claro);
+            display: inline-block;
+            padding: 5px 20px;
+            border-radius: 12px;
+            margin: 15px 0;
         }
-        
-        .numero:before {
-            content: '';
-            position: absolute;
-            bottom: 5px;
-            left: 0;
-            right: 0;
-            height: 8px;
-            background: var(--amarillo);
-            z-index: -1;
-            opacity: 0.7;
-        }
-        
-        /* PROPUESTAS CON COLORES OFICIALES */
+
+        /* PROPUESTAS GRID */
         .propuestas-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
-        
+
         .propuesta-card {
-            background: var(--blanco);
-            border-radius: 20px;
+            background: white;
+            border-radius: 15px;
             overflow: hidden;
-            border: 1px solid rgba(26, 54, 93, 0.1);
-            transition: all 0.3s ease;
-            position: relative;
-            box-shadow: 0 15px 30px rgba(26, 54, 93, 0.08);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: 0.3s;
         }
-        
-        .propuesta-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--amarillo);
-            box-shadow: 0 20px 40px rgba(26, 54, 93, 0.15);
-        }
-        
+
+        .propuesta-card:hover { transform: scale(1.02); }
+
         .propuesta-header {
             background: var(--azul-principal);
-            color: var(--blanco);
-            padding: 35px 30px;
+            color: white;
+            padding: 30px;
             text-align: center;
-            position: relative;
-            overflow: hidden;
         }
-        
-        .propuesta-header:before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: var(--amarillo);
-        }
-        
-        .icono {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: var(--amarillo);
-        }
-        
-        .propuesta-body {
-            padding: 40px 35px;
-        }
-        
-        .propuesta-body ul {
-            list-style-type: none;
-        }
-        
-        .propuesta-body li {
-            padding: 15px 0;
-            border-bottom: 1px solid rgba(26, 54, 93, 0.1);
-            position: relative;
-            padding-left: 35px;
-            color: var(--gris-texto);
-            font-size: 1.1rem;
-        }
-        
-        .propuesta-body li:last-child {
-            border-bottom: none;
-        }
-        
-        .propuesta-body li:before {
-            content: '▶';
-            position: absolute;
-            left: 0;
-            color: var(--azul-claro);
-            font-weight: bold;
-            font-size: 1rem;
-        }
-        
-        /* PERFIL ELEGANTE */
-        .perfil-section {
-            background: linear-gradient(135deg, var(--gris-claro) 0%, var(--blanco) 100%);
-            position: relative;
-        }
-        
-        .perfil-content {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 60px;
-            align-items: center;
-        }
-        
-        .perfil-img {
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(26, 54, 93, 0.15);
-            border: 5px solid var(--blanco);
-        }
-        
-        .perfil-img img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        
-        .formacion-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .formacion-item {
-            background: rgba(26, 54, 93, 0.05);
-            padding: 12px 20px;
-            border-radius: 8px;
-            border-left: 4px solid var(--amarillo);
-            color: var(--azul-principal);
-            font-weight: 500;
-        }
-        
+
+        .propuesta-body { padding: 30px; }
+        .propuesta-body li { list-style: none; margin-bottom: 12px; position: relative; padding-left: 25px; }
+        .propuesta-body li:before { content: '✓'; position: absolute; left: 0; color: var(--azul-claro); font-weight: bold; }
+
         /* LOGROS */
-        .logros-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 35px;
-            margin-top: 60px;
-        }
-        
         .logro-card {
-            background: var(--blanco);
-            padding: 40px 30px;
+            background: white;
+            padding: 40px 20px;
             border-radius: 20px;
             text-align: center;
-            border: 1px solid rgba(26, 54, 93, 0.1);
-            transition: all 0.3s ease;
-            position: relative;
-            box-shadow: 0 15px 30px rgba(26, 54, 93, 0.08);
+            transition: 0.3s;
+            border: 1px solid #eee;
         }
-        
-        .logro-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--amarillo);
-            box-shadow: 0 20px 40px rgba(26, 54, 93, 0.15);
-        }
-        
-        .logro-card:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: var(--amarillo);
-        }
-        
-        .logro-icon {
-            font-size: 3rem;
-            color: var(--azul-principal);
-            margin-bottom: 25px;
-        }
-        
-        .logro-cifra {
-            font-size: 3.2rem;
-            font-weight: 900;
-            color: var(--amarillo);
-            margin: 20px 0;
-            line-height: 1;
-        }
-        
-        /* FOOTER OFICIAL */
+
+        .logro-card:hover { background: var(--azul-principal); color: white; }
+        .logro-card:hover h3, .logro-card:hover i { color: var(--amarillo); }
+
+        .logro-cifra { font-size: 3rem; font-weight: 900; color: var(--amarillo); margin: 10px 0; }
+
+        /* FOOTER */
         footer {
             background: var(--azul-principal);
-            padding: 100px 0 50px;
-            position: relative;
-            overflow: hidden;
+            color: white;
+            padding: 80px 0 40px;
         }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 60px;
-            margin-bottom: 60px;
-        }
-        
-        .footer-logo {
-            font-size: 2.5rem;
-            font-weight: 900;
-            color: var(--blanco);
-            margin-bottom: 25px;
-            letter-spacing: 1px;
-        }
-        
-        .footer-logo span {
-            color: var(--amarillo);
-        }
-        
-        .redes-sociales {
-            display: flex;
-            gap: 15px;
-            margin-top: 25px;
-            flex-wrap: wrap;
-        }
-        
+
         .redes-sociales a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: var(--blanco);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-size: 1.2rem;
-        }
-        
-        .redes-sociales a:hover {
-            background: var(--amarillo);
-            color: var(--azul-principal);
-            transform: translateY(-3px);
-        }
-        
-        .candidato-redes {
-            margin-top: 30px;
-            padding: 25px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-        }
-        
-        .candidato-redes h4 {
-            color: var(--amarillo);
-            margin-bottom: 20px;
-            font-size: 1.2rem;
-        }
-        
-        .footer-bottom {
-            text-align: center;
-            padding-top: 40px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 1rem;
-            color: rgba(255, 255, 255, 0.7);
-        }
-        
-        .hashtag {
-            font-size: 2.2rem;
-            font-weight: 900;
-            color: var(--amarillo);
-            margin: 30px 0;
+            color: white;
+            font-size: 1.5rem;
+            margin-right: 15px;
+            transition: 0.3s;
             display: inline-block;
         }
-        
-        /* ANIMACIONES */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
+
+        .redes-sociales a:hover { color: var(--amarillo); transform: translateY(-3px); }
+
+        /* ANIMACIÓN DE REVELADO (SCROLL) */
         .fade-in {
             opacity: 0;
-            animation: fadeInUp 0.8s ease forwards;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
-        
-        .delay-1 { animation-delay: 0.2s; }
-        .delay-2 { animation-delay: 0.4s; }
-        .delay-3 { animation-delay: 0.6s; }
-        
-        /* RESPONSIVE */
-        @media (max-width: 992px) {
-            h1 { font-size: 2.8rem; }
-            h2 { font-size: 2.3rem; }
-            .perfil-content { grid-template-columns: 1fr; }
-            .candidatos-container { grid-template-columns: 1fr; }
-            .propuestas-grid { grid-template-columns: 1fr; }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
-        
+
         @media (max-width: 768px) {
-            h1 { font-size: 2.3rem; }
-            h2 { font-size: 1.9rem; }
             .logo { font-size: 2.5rem; }
-            .player-section { padding: 30px 20px; }
-            .candidato-img { width: 180px; height: 180px; }
-            .numero { font-size: 3.5rem; }
-            section { padding: 70px 0; }
+            section { padding: 60px 0; }
         }
     </style>
 </head>
 <body>
-    <!-- HEADER OFICIAL -->
+
     <header>
         <div class="container">
-            <div class="logo-container fade-in">
+            <div class="fade-in">
                 <div class="partido-badge">Partido Conservador Colombiano</div>
                 <div class="logo">CLUB <span>AVANCEMOS</span></div>
-                <div class="tagline">Liderazgo Real para Bogotá</div>
+                <p style="font-size: 1.5rem; opacity: 0.9;">Liderazgo Real para Bogotá</p>
             </div>
             
-            <div class="player-section fade-in delay-1">
-                <div class="player-title">CLUB AVANCEMOS</div>
-                
-                <div class="player">
-                    <div class="play-btn" id="playButton">
-                        <i class="fas fa-play"></i>
-                    </div>
-                    
-                    <div class="time-info">
-                        <span id="currentTime">0:00</span>
-                        <span id="totalTime">1:26</span>
-                    </div>
-                    
-                    <div class="progress-container" id="progressContainer">
-                        <div class="progress-bar" id="progressBar"></div>
-                    </div>
-                    
-                    <div class="play-instruction">Haz clic en ► para reproducir nuestra canción</div>
+            <div class="player-section fade-in">
+                <h3 style="margin-bottom: 20px;">Escucha nuestro himno</h3>
+                <div class="play-btn" id="playButton">
+                    <i class="fas fa-play" id="playIcon" style="font-size: 2rem;"></i>
                 </div>
-            </div>
-            
-            <div class="candidatos-section">
-                <div class="candidatos-container">
-                    <!-- SOLEDAD TAMAYO -->
-                    <div class="candidato-card fade-in delay-1">
-                        <div class="candidato-img">
-                            <img src="Soledad.jpg" alt="Soledad Tamayo">
-                        </div>
-                        <div class="cargo">Senado de la República</div>
-                        <div class="nombre">SOLEDAD TAMAYO</div>
-                        <div class="numero-container">
-                            <div class="numero">C6</div>
-                        </div>
-                        <a href="#propuestas-soledad" class="btn btn-azul">CONOCER PROPUESTAS</a>
-                    </div>
-                    
-                    <!-- NELSON CUBIDES -->
-                    <div class="candidato-card fade-in delay-2">
-                        <div class="candidato-img">
-                            <img src="Nelson.jpg" alt="Nelson Cubides">
-                        </div>
-                        <div class="cargo">Cámara por Bogotá</div>
-                        <div class="nombre">NELSON CUBIDES</div>
-                        <div class="numero-container">
-                            <div class="numero">106</div>
-                        </div>
-                        <a href="#propuestas-nelson" class="btn btn-azul">CONOCER PROPUESTAS</a>
-                    </div>
+                <div class="progress-container" id="progressContainer">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-weight: bold;">
+                    <span id="currentTime">0:00</span>
+                    <span id="totalTime">1:26</span>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- PROPUESTAS NELSON CUBIDES -->
+    <div class="container">
+        <div class="candidatos-container">
+            <div class="candidato-card fade-in">
+                <div class="candidato-img">
+                    <img src="Soledad.jpg" alt="Soledad Tamayo">
+                </div>
+                <p style="text-transform: uppercase; letter-spacing: 2px; color: var(--azul-medio);">Senado</p>
+                <h3 style="font-size: 1.8rem;">SOLEDAD TAMAYO</h3>
+                <div class="numero-badge">C6</div>
+                <br>
+                <a href="#propuestas-soledad" class="btn btn-azul">Ver Propuestas</a>
+            </div>
+
+            <div class="candidato-card fade-in">
+                <div class="candidato-img">
+                    <img src="Nelson.jpg" alt="Nelson Cubides">
+                </div>
+                <p style="text-transform: uppercase; letter-spacing: 2px; color: var(--azul-medio);">Cámara Bogotá</p>
+                <h3 style="font-size: 1.8rem;">NELSON CUBIDES</h3>
+                <div class="numero-badge">106</div>
+                <br>
+                <a href="#propuestas-nelson" class="btn btn-azul">Ver Propuestas</a>
+            </div>
+        </div>
+    </div>
+
     <section id="propuestas-nelson">
         <div class="container">
-            <h2 class="fade-in">PROPUESTAS DE NELSON CUBIDES</h2>
-            
-            <p class="fade-in delay-1" style="text-align: center; color: var(--azul-medio); margin-bottom: 60px; max-width: 800px; margin-left: auto; margin-right: auto; font-size: 1.3rem;">
-                Candidato a la Cámara por Bogotá - #106<br>
-                <strong>"Que el miedo no mande más, que vuelva la autoridad"</strong>
-            </p>
-            
+            <h2 class="fade-in">Propuestas de Nelson Cubides</h2>
             <div class="propuestas-grid">
-                <!-- EDUCACIÓN -->
-                <div class="propuesta-card fade-in delay-1">
-                    <div class="propuesta-header">
-                        <div class="icono">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
-                        <h3 style="color: var(--blanco);">¡EDUCACIÓN CON EMPLEO Y SIN DEUDA!</h3>
-                    </div>
+                <div class="propuesta-card fade-in">
+                    <div class="propuesta-header"><i class="fas fa-graduation-cap fa-2x"></i><h3>Educación</h3></div>
                     <div class="propuesta-body">
                         <ul>
-                            <li><strong>¡No más ICETEX!</strong> Crearemos el Fondo Nacional de Becas</li>
-                            <li>Tendrá el 50% para becas y el 50% para crédito sin intereses</li>
-                            <li><strong>Solo se paga si se trabaja</strong></li>
-                            <li><strong>Carreras cortas:</strong> Profesionales de 3 años y Técnicos de 1.5 años</li>
-                            <li><strong>Inmersión Universitaria:</strong> desde el colegio</li>
-                            <li><strong>Educación Dual obligatoria:</strong> 50% teoría y 50% en la empresa</li>
-                            <li><strong>Certificaciones gratuitas:</strong> IA – programación – ciberseguridad</li>
+                            <li><strong>¡No más ICETEX!</strong> Fondo Nacional de Becas.</li>
+                            <li><strong>Solo se paga si se trabaja.</strong></li>
+                            <li>Inmersión Universitaria desde el colegio.</li>
                         </ul>
                     </div>
                 </div>
-                
-                <!-- SEGURIDAD -->
-                <div class="propuesta-card fade-in delay-2">
-                    <div class="propuesta-header">
-                        <div class="icono">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <h3 style="color: var(--blanco);">QUE EL MIEDO NO MANDE MÁS</h3>
-                    </div>
+                <div class="propuesta-card fade-in">
+                    <div class="propuesta-header"><i class="fas fa-shield-alt fa-2x"></i><h3>Seguridad</h3></div>
                     <div class="propuesta-body">
                         <ul>
-                            <li><strong>Sistema de vigilancia ciudadana inteligente</strong></li>
-                            <li>Policía + trabajador social + tecnología</li>
-                            <li>Cámaras con IA para prevención del delito</li>
-                            <li>Presencia policial permanente, no rotativa</li>
-                            <li><strong>Cárceles sin celulares, calles más seguras</strong></li>
-                            <li>Hoy muchos delitos se ordenan desde prisión. ¡Eso se acaba!</li>
-                            <li>Inhibidores obligatorios: cero señal en las cárceles</li>
-                            <li>No más extorsión desde las prisiones</li>
-                            <li>Extinción de dominio exprés a bandas criminales</li>
-                            <li>Registro nacional de reincidentes</li>
-                            <li>Castigo severo a reclutadores de menores</li>
+                            <li>Cámaras con IA para prevención.</li>
+                            <li><strong>Cero señal en las cárceles.</strong></li>
+                            <li>Castigo severo a reclutadores de menores.</li>
                         </ul>
                     </div>
                 </div>
-                
-                <!-- ECONOMÍA -->
-                <div class="propuesta-card fade-in delay-3">
-                    <div class="propuesta-header">
-                        <div class="icono">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <h3 style="color: var(--blanco);">REACTIVACIÓN ECONÓMICA Y PROSPERIDAD</h3>
-                    </div>
+                <div class="propuesta-card fade-in">
+                    <div class="propuesta-header"><i class="fas fa-chart-line fa-2x"></i><h3>Economía</h3></div>
                     <div class="propuesta-body">
                         <ul>
-                            <li><strong>Los emprendimientos tendrán:</strong></li>
-                            <li>Capital semilla + venta por internet + arriendo subsidiado</li>
-                            <li><strong>Las PYMES tendrán acceso a:</strong></li>
-                            <li>Tecnología avanzada y crédito real sin burocracia</li>
-                            <li><strong>Regalías inteligentes para:</strong></li>
-                            <li>Grandes obras de infraestructura y tecnología en el campo</li>
-                            <li><strong>Incentivos a la economía creativa</strong> para emprendedores culturales</li>
-                            <li><strong>Programa de movilidad sostenible</strong> para Bogotá</li>
+                            <li>Capital semilla para emprendedores.</li>
+                            <li>Crédito real para PYMES sin burocracia.</li>
+                            <li>Programa de movilidad sostenible.</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    
-    <!-- LOGROS NELSON CUBIDES -->
-    <section>
+
+    <section style="background: var(--gris-claro);">
         <div class="container">
-            <h2 class="fade-in">LOGROS QUE TRANSFORMARON VIDAS</h2>
-            
-            <div class="logros-grid">
-                <div class="logro-card fade-in delay-1">
-                    <div class="logro-icon">
-                        <i class="fas fa-university"></i>
-                    </div>
-                    <h3>BECA FEST</h3>
-                    <div class="logro-cifra">6,000+</div>
-                    <p>jóvenes ingresaron a la universidad con la BECA FEST (Acuerdo 670/17)</p>
-                </div>
-                
-                <div class="logro-card fade-in delay-2">
-                    <div class="logro-icon">
-                        <i class="fas fa-female"></i>
-                    </div>
-                    <h3>JUNTOS POR LAS NIÑAS</h3>
-                    <div class="logro-cifra">10,000+</div>
-                    <p>niñas fortalecieron su liderazgo y empoderamiento (Acuerdo 792/20)</p>
-                </div>
-                
-                <div class="logro-card fade-in delay-3">
-                    <div class="logro-icon">
-                        <i class="fas fa-paw"></i>
-                    </div>
-                    <h3>HOSPITAL PARA MASCOTAS</h3>
-                    <p>Impulsamos el primer Hospital Público para Mascotas, respaldado por más de <strong style="color: var(--amarillo);">80,000 ciudadanos</strong> (PA 612/23)</p>
-                </div>
-                
+            <h2 class="fade-in">Resultados Comprobados</h2>
+            <div class="propuestas-grid">
                 <div class="logro-card fade-in">
-                    <div class="logro-icon">
-                        <i class="fas fa-leaf"></i>
-                    </div>
-                    <h3>MOVILIDAD SOSTENIBLE</h3>
-                    <p>Creamos el programa de movilidad sostenible para Bogotá (Acuerdo 663/17)</p>
+                    <i class="fas fa-university fa-3x" style="color: var(--azul-principal);"></i>
+                    <div class="logro-cifra">6,000+</div>
+                    <p>Becas FEST para jóvenes</p>
+                </div>
+                <div class="logro-card fade-in">
+                    <i class="fas fa-female fa-3x" style="color: var(--azul-principal);"></i>
+                    <div class="logro-cifra">10,000+</div>
+                    <p>Niñas empoderadas en liderazgo</p>
+                </div>
+                <div class="logro-card fade-in">
+                    <i class="fas fa-paw fa-3x" style="color: var(--azul-principal);"></i>
+                    <div class="logro-cifra">80,000</div>
+                    <p>Firmas por el Hospital de Mascotas</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- PROPUESTAS SOLEDAD TAMAYO -->
-    <section id="propuestas-soledad" style="background: var(--gris-claro);">
-        <div class="container">
-            <h2 class="fade-in">PROPUESTAS DE SOLEDAD TAMAYO</h2>
-            
-            <p class="fade-in delay-1" style="text-align: center; color: var(--azul-medio); margin-bottom: 60px; max-width: 800px; margin-left: auto; margin-right: auto; font-size: 1.3rem;">
-                Candidata al Senado de la República - #C6<br>
-                <strong>"Liderazgo con propósito para una Colombia con oportunidades para todos"</strong>
-            </p>
-            
-            <div class="propuestas-grid">
-                <div class="propuesta-card fade-in delay-1">
-                    <div class="propuesta-header">
-                        <div class="icono">
-                            <i class="fas fa-heart"></i>
-                        </div>
-                        <h3 style="color: var(--blanco);">PROTECCIÓN SOCIAL</h3>
-                    </div>
-                    <div class="propuesta-body">
-                        <ul>
-                            <li><strong>Salud digna para todos</strong> - Sistema de salud fortalecido y accesible</li>
-                            <li><strong>Pensiones justas</strong> - Reforma pensional con enfoque en adultos mayores</li>
-                            <li><strong>Protección a la familia</strong> - Políticas que fortalezcan el núcleo familiar</li>
-                            <li><strong>Atención integral a mujeres</strong> - Programas contra la violencia de género</li>
-                            <li><strong>Inclusión social</strong> - Políticas para población vulnerable y discapacitada</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="propuesta-card fade-in delay-2">
-                    <div class="propuesta-header">
-                        <div class="icono">
-                            <i class="fas fa-seedling"></i>
-                        </div>
-                        <h3 style="color: var(--blanco);">DESARROLLO SOSTENIBLE</h3>
-                    </div>
-                    <div class="propuesta-body">
-                        <ul>
-                            <li><strong>Economía verde</strong> - Incentivos a proyectos ambientales sostenibles</li>
-                            <li><strong>Protección de recursos hídricos</strong> - Ley de agua potable garantizada</li>
-                            <li><strong>Transición energética</strong> - Apoyo a energías renovables</li>
-                            <li><strong>Agricultura sostenible</strong> - Tecnificación del campo colombiano</li>
-                            <li><strong>Turismo responsable</strong> - Desarrollo turístico con conservación ambiental</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="propuesta-card fade-in delay-3">
-                    <div class="propuesta-header">
-                        <div class="icono">
-                            <i class="fas fa-balance-scale"></i>
-                        </div>
-                        <h3 style="color: var(--blanco);">TRANSPARENCIA Y JUSTICIA</h3>
-                    </div>
-                    <div class="propuesta-body">
-                        <ul>
-                            <li><strong>Lucha contra la corrupción</strong> - Cero tolerancia a actos corruptos</li>
-                            <li><strong>Justicia eficiente</strong> - Modernización del sistema judicial</li>
-                            <li><strong>Transparencia pública</strong> - Gobierno abierto y rendición de cuentas</li>
-                            <li><strong>Participación ciudadana</strong> - Mecanismos reales de veeduría</li>
-                            <li><strong>Fortalecimiento democrático</strong> - Protección a líderes sociales</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER OFICIAL -->
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="fade-in">
-                    <div class="footer-logo">CLUB <span>AVANCEMOS</span></div>
-                    <p style="color: rgba(255, 255, 255, 0.9); margin-bottom: 25px; font-size: 1.2rem;">
-                        Partido Conservador Colombiano
-                    </p>
-                    <p style="color: rgba(255, 255, 255, 0.7); margin-bottom: 30px;">
-                        Un movimiento político comprometido con la educación, seguridad y prosperidad para todos los colombianos.
-                    </p>
-                    <div class="hashtag">#AvancemosJuntos</div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px;">
+                <div>
+                    <h2 style="color: white; text-align: left; font-size: 2rem;">CLUB AVANCEMOS</h2>
+                    <p>Comprometidos con el futuro de Bogotá y Colombia. #AvancemosJuntos</p>
                 </div>
-                
-                <div class="fade-in delay-1">
-                    <h3 style="color: var(--amarillo);">CONTACTO Y REDES</h3>
-                    <p style="color: rgba(255, 255, 255, 0.9); margin-bottom: 30px; font-size: 1.2rem;">
-                        ¡Súmate a nuestra campaña!
-                    </p>
-                    <a href="#" class="btn btn-blanco" style="margin-bottom: 40px;">SER VOLUNTARIO</a>
-                    
-                    <div class="candidato-redes">
-                        <h4>Nelson Cubides - Cámara Bogotá #106</h4>
-                        <div class="redes-sociales">
-                            <a href="https://www.instagram.com/nelsoncubides?igsh=djB5Y20xenFrNzFr" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-                            <a href="https://www.facebook.com/share/1C2ptcBNcy/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                            <a href="https://x.com/nelsoncubides" target="_blank" title="Twitter/X"><i class="fab fa-twitter"></i></a>
-                            <a href="https://www.tiktok.com/@nelsoncubidessalazar" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
-                        </div>
+                <div>
+                    <h3 style="color: var(--amarillo);">Nelson Cubides #106</h3>
+                    <div class="redes-sociales">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
                     </div>
-                    
-                    <div class="candidato-redes">
-                        <h4>Soledad Tamayo - Senado #C6</h4>
-                        <div class="redes-sociales">
-                            <a href="https://www.instagram.com/soledadtamayot?igsh=ODg1dmt6bjF6eTFh" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-                            <a href="https://www.facebook.com/share/165mGmvNSB/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                            <a href="https://x.com/SoledadTamayoT" target="_blank" title="Twitter/X"><i class="fab fa-twitter"></i></a>
-                        </div>
+                </div>
+                <div>
+                    <h3 style="color: var(--amarillo);">Soledad Tamayo #C6</h3>
+                    <div class="redes-sociales">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
             </div>
-            
-            <div class="footer-bottom fade-in delay-2">
-                <p>&copy; 2026 Club Avancemos - Partido Conservador Colombiano. Todos los derechos reservados.</p>
-                <p style="margin-top: 15px; color: var(--amarillo); font-weight: 700;">
-                    ¡Que el miedo no mande más, que vuelva la autoridad!
-                </p>
-            </div>
+            <hr style="margin: 40px 0; opacity: 0.1;">
+            <p style="text-align: center; opacity: 0.7;">&copy; 2026 Club Avancemos - Partido Conservador Colombiano</p>
         </div>
     </footer>
 
-    <!-- AUDIO REAL -->
-    <audio id="campaignAudio" preload="auto">
+    <audio id="campaignAudio">
         <source src="https://ylizcano.github.io/Club-Avancemos/cancion.mp3" type="audio/mpeg">
-        Tu navegador no soporta el elemento de audio.
     </audio>
 
     <script>
-        // REPRODUCTOR DE AUDIO
+        // --- REPRODUCTOR DE AUDIO ---
         const audio = document.getElementById('campaignAudio');
         const playButton = document.getElementById('playButton');
+        const playIcon = document.getElementById('playIcon');
         const progressBar = document.getElementById('progressBar');
-        const progressContainer = document.getElementById('progressContainer');
-        const currentTimeElement = document.getElementById('currentTime');
-        const totalTimeElement = document.getElementById('totalTime');
-        const playIcon = playButton.querySelector('i');
-        
-        // Configurar duración total (1:26)
-        totalTimeElement.textContent = '1:26';
-        currentTimeElement.textContent = '0:00';
-        
-        // Función para formatear tiempo
-        function formatTime(seconds) {
-            const mins = Math.floor(seconds / 60);
-            const secs = Math.floor(seconds % 60);
-            return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
-        }
-        
-        // Actualizar barra de progreso
-        function updateProgress() {
-            if (audio.duration) {
-                const progress = (audio.currentTime / audio.duration) * 100;
-                progressBar.style.width = `${progress}%`;
-                currentTimeElement.textContent = formatTime(audio.currentTime);
-            }
-        }
-        
-        // Cambiar posición de reproducción
-        function setProgress(e) {
-            const width = this.clientWidth;
-            const clickX = e.offsetX;
-            const duration = audio.duration;
-            
-            if (duration) {
-                audio.currentTime = (clickX / width) * duration;
-            }
-        }
-        
-        // Controlar reproducción
+        const currentTimeEl = document.getElementById('currentTime');
+
         function togglePlay() {
             if (audio.paused) {
                 audio.play();
-                playIcon.classList.remove('fa-play');
-                playIcon.classList.add('fa-pause');
+                playIcon.classList.replace('fa-play', 'fa-pause');
             } else {
                 audio.pause();
-                playIcon.classList.remove('fa-pause');
-                playIcon.classList.add('fa-play');
+                playIcon.classList.replace('fa-pause', 'fa-play');
             }
         }
-        
-        // Event Listeners
-        playButton.addEventListener('click', togglePlay);
-        audio.addEventListener('timeupdate', updateProgress);
-        audio.addEventListener('ended', function() {
-            playIcon.classList.remove('fa-pause');
-            playIcon.classList.add('fa-play');
-            progressBar.style.width = '0%';
-            currentTimeElement.textContent = '0:00';
-        });
-        
-        progressContainer.addEventListener('click', setProgress);
-        
-        // Navegación suave
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-        
-        // Scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
+
+        audio.ontimeupdate = () => {
+            const pct = (audio.currentTime / audio.duration) * 100;
+            progressBar.style.width = pct + '%';
+            const mins = Math.floor(audio.currentTime / 60);
+            const secs = Math.floor(audio.currentTime % 60);
+            currentTimeEl.innerText = `${mins}:${secs < 10 ? '0' : ''}${secs}`;
         };
-        
+
+        playButton.addEventListener('click', togglePlay);
+
+        // --- ANIMACIÓN AL HACER SCROLL ---
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = 1;
-                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.classList.add('visible');
                 }
             });
-        }, observerOptions);
-        
-        // Observar elementos con animación
-        document.addEventListener('DOMContentLoaded', function() {
-            // Observar elementos con clase fade-in
-            document.querySelectorAll('.fade-in').forEach(el => {
-                observer.observe(el);
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // --- NAVEGACIÓN SUAVE ---
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
             });
-            
-            // Iniciar audio automáticamente (con interacción del usuario)
-            document.body.addEventListener('click', function initAudio() {
-                // Solo intentar reproducir si no se ha hecho antes
-                if (audio.paused) {
-                    audio.play().then(() => {
-                        playIcon.classList.remove('fa-play');
-                        playIcon.classList.add('fa-pause');
-                    }).catch(e => {
-                        console.log("Reproducción automática bloqueada");
-                    });
-                }
-                // Remover el event listener después del primer click
-                document.body.removeEventListener('click', initAudio);
-            }, { once: true });
         });
     </script>
 </body>
 </html>
-
-
-
-
