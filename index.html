@@ -199,11 +199,11 @@
         }
         
         .player-title {
-            font-size: 1.8rem;
+            font-size: 2.2rem;
             color: var(--azul-principal);
             margin-bottom: 40px;
             text-align: center;
-            font-weight: 700;
+            font-weight: 800;
         }
         
         .player {
@@ -248,7 +248,7 @@
         .progress-bar {
             background: linear-gradient(90deg, var(--amarillo), var(--azul-claro));
             height: 100%;
-            width: 7%;
+            width: 0%;
             border-radius: 4px;
             position: relative;
             transition: width 0.3s ease;
@@ -686,7 +686,7 @@
             </div>
             
             <div class="player-section fade-in delay-1">
-                <div class="player-title">ESCUCHA NUESTRA PROPUESTA</div>
+                <div class="player-title">CLUB AVANCEMOS</div>
                 
                 <div class="player">
                     <div class="play-btn" id="playButton">
@@ -702,7 +702,7 @@
                         <div class="progress-bar" id="progressBar"></div>
                     </div>
                     
-                    <div class="play-instruction">Haz clic en ► para reproducir</div>
+                    <div class="play-instruction">Haz clic en ► para reproducir nuestra canción</div>
                 </div>
             </div>
             
@@ -711,7 +711,7 @@
                     <!-- SOLEDAD TAMAYO -->
                     <div class="candidato-card fade-in delay-1">
                         <div class="candidato-img">
-                            <img src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Soledad Tamayo">
+                            <img src="soledad.jpg" alt="Soledad Tamayo">
                         </div>
                         <div class="cargo">Senado de la República</div>
                         <div class="nombre">SOLEDAD TAMAYO</div>
@@ -724,7 +724,7 @@
                     <!-- NELSON CUBIDES -->
                     <div class="candidato-card fade-in delay-2">
                         <div class="candidato-img">
-                            <img src="https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Nelson Cubides">
+                            <img src="nelson.jpg" alt="Nelson Cubides">
                         </div>
                         <div class="cargo">Cámara por Bogotá</div>
                         <div class="nombre">NELSON CUBIDES</div>
@@ -742,6 +742,23 @@
     <section id="propuestas-nelson">
         <div class="container">
             <h2 class="fade-in">PROPUESTAS DE NELSON CUBIDES</h2>
+            
+            <!-- FOTO Y PERFIL DE NELSON -->
+            <div class="perfil-content" style="margin-bottom: 60px;">
+                <div class="perfil-img fade-in delay-1" style="max-width: 350px;">
+                    <img src="nelson.jpg" alt="Nelson Cubides">
+                </div>
+                <div class="perfil-texto fade-in delay-2">
+                    <h3 style="color: var(--azul-principal);">Hijo de una maestra de escuela y de un emprendedor</h3>
+                    <p style="margin-bottom: 25px; color: var(--gris-texto); font-size: 1.2rem;">
+                        Aprendió desde joven que educar es sembrar futuro, emprender es construir país y servir es un valor que se vive en casa.
+                    </p>
+                    <p style="color: var(--gris-texto); font-size: 1.2rem;">
+                        Concejal de Bogotá por dos periodos consecutivos, elegido por "Concejo Como Vamos" como uno de los 5 mejores concejales de la ciudad.
+                    </p>
+                </div>
+            </div>
+            
             <p class="fade-in delay-1" style="text-align: center; color: var(--azul-medio); margin-bottom: 60px; max-width: 800px; margin-left: auto; margin-right: auto; font-size: 1.3rem;">
                 Candidato a la Cámara por Bogotá - #106<br>
                 <strong>"Que el miedo no mande más, que vuelva la autoridad"</strong>
@@ -819,14 +836,14 @@
         </div>
     </section>
 
-    <!-- PERFIL NELSON CUBIDES -->
+    <!-- PERFIL COMPLETO NELSON CUBIDES -->
     <section class="perfil-section">
         <div class="container">
             <h2 class="fade-in">CONOCE A NELSON CUBIDES</h2>
             
             <div class="perfil-content">
                 <div class="perfil-img fade-in delay-1">
-                    <img src="https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Nelson Cubides">
+                    <img src="nelson.jpg" alt="Nelson Cubides">
                 </div>
                 
                 <div class="perfil-texto fade-in delay-2">
@@ -904,21 +921,23 @@
     <section id="propuestas-soledad" style="background: var(--gris-claro);">
         <div class="container">
             <h2 class="fade-in">PROPUESTAS DE SOLEDAD TAMAYO</h2>
-                    <!-- PERFIL DE SOLEDAD TAMAYO -->
-        <div class="perfil-content" style="margin-bottom: 60px;">
-            <div class="perfil-img fade-in delay-1" style="max-width: 300px;">
-                <img src="soledad.jpg" alt="Soledad Tamayo">
+            
+            <!-- FOTO Y PERFIL DE SOLEDAD -->
+            <div class="perfil-content" style="margin-bottom: 60px;">
+                <div class="perfil-img fade-in delay-1" style="max-width: 350px;">
+                    <img src="soledad.jpg" alt="Soledad Tamayo">
+                </div>
+                <div class="perfil-texto fade-in delay-2">
+                    <h3 style="color: var(--azul-principal);">Liderazgo con Propósito</h3>
+                    <p style="margin-bottom: 25px; color: var(--gris-texto); font-size: 1.2rem;">
+                        Soledad Tamayo es una líder comprometida con la transformación social y el desarrollo sostenible de Colombia.
+                    </p>
+                    <p style="color: var(--gris-texto); font-size: 1.2rem;">
+                        Con una trayectoria de servicio público y defensa de los derechos ciudadanos, busca representar a los colombianos en el Senado con transparencia y dedicación.
+                    </p>
+                </div>
             </div>
-            <div class="perfil-texto fade-in delay-2">
-                <h3 style="color: var(--azul-principal);">Liderazgo con Propósito</h3>
-                <p style="margin-bottom: 25px; color: var(--gris-texto); font-size: 1.2rem;">
-                    Soledad Tamayo es una líder comprometida con la transformación social y el desarrollo sostenible de Colombia.
-                </p>
-                <p style="color: var(--gris-texto); font-size: 1.2rem;">
-                    Con una trayectoria de servicio público y defensa de los derechos ciudadanos, busca representar a los colombianos en el Senado con transparencia y dedicación.
-                </p>
-            </div>
-        </div>
+            
             <p class="fade-in delay-1" style="text-align: center; color: var(--azul-medio); margin-bottom: 60px; max-width: 800px; margin-left: auto; margin-right: auto; font-size: 1.3rem;">
                 Candidata al Senado de la República - #C6<br>
                 <strong>"Liderazgo con propósito para una Colombia con oportunidades para todos"</strong>
@@ -1052,6 +1071,7 @@
         
         // Configurar duración total (1:26)
         totalTimeElement.textContent = '1:26';
+        currentTimeElement.textContent = '0:00';
         
         // Función para formatear tiempo
         function formatTime(seconds) {
@@ -1062,9 +1082,11 @@
         
         // Actualizar barra de progreso
         function updateProgress() {
-            const progress = (audio.currentTime / audio.duration) * 100;
-            progressBar.style.width = `${progress}%`;
-            currentTimeElement.textContent = formatTime(audio.currentTime);
+            if (audio.duration) {
+                const progress = (audio.currentTime / audio.duration) * 100;
+                progressBar.style.width = `${progress}%`;
+                currentTimeElement.textContent = formatTime(audio.currentTime);
+            }
         }
         
         // Cambiar posición de reproducción
@@ -1073,7 +1095,9 @@
             const clickX = e.offsetX;
             const duration = audio.duration;
             
-            audio.currentTime = (clickX / width) * duration;
+            if (duration) {
+                audio.currentTime = (clickX / width) * duration;
+            }
         }
         
         // Controlar reproducción
@@ -1159,5 +1183,3 @@
     </script>
 </body>
 </html>
-
-
